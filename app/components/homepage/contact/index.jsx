@@ -5,6 +5,7 @@ import { IoMdCall } from "react-icons/io";
 import { CiLocationOn } from "react-icons/ci";
 import ContactForm from './contact-form';
 
+
 function ContactSection() {
   return (
     <div id="contact" className="my-12 lg:my-16 relative">
@@ -14,7 +15,7 @@ function ContactSection() {
           <div>
             <h3 className="text-2xl font-bold text-white mb-4">Get in Touch</h3>
             <p className="text-gray-400 leading-relaxed">
-              I'm always interested in discussing new opportunities, collaborations, or just having a chat about tech and development.
+              I&apos;m always interested in discussing new opportunities, collaborations, or just having a chat about tech and development.
             </p>
             <div className="mt-8 flex flex-col gap-6">
               <div className="flex items-center gap-4">
@@ -47,6 +48,7 @@ function ContactSection() {
             </div>
           </div>
 
+
           {/* Right Column: Contact Form */}
           <div>
             <ContactForm />
@@ -56,5 +58,6 @@ function ContactSection() {
     </div>
   );
 };
+
 
 export default ContactSection;
