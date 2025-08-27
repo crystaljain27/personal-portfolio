@@ -1,7 +1,7 @@
 // @flow strict
-// import AboutSection from "@/app/components/homepage/about";
+import AboutSection from "@/app/components/homepage/about";
 import Collaboration from "@/app/components/homepage/collaboration";
-import ContactSection from "@/app/components/homepage/contact";
+// import ContactSection from "@/app/components/homepage/contact";
 import Education from "@/app/components/homepage/education";
 import HeroSection from "@/app/components/homepage/hero-section";
 import Projects from "@/app/components/homepage/projects";
@@ -12,13 +12,13 @@ export default function Home() {
   return (
     <>
       <HeroSection />
-      {/* <AboutSection /> */}
+      <AboutSection />
       <Skills />
       <Projects />
       <AdditionalWork />
       <Collaboration />
       <Education />
-      <ContactSection />
+      {/* <ContactSection /> */}
     </>
   );
 };
