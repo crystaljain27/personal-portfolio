@@ -1,10 +1,13 @@
 // @flow strict
+'use client';
+
 import { educations } from "@/utils/data/educations";
 import Image from "next/image";
 import { BsPersonWorkspace } from "react-icons/bs";
 import lottieFile from '../../../assets/lottie/study.json';
 import AnimationLottie from "../../helper/animation-lottie";
 import GlowCard from "../../helper/glow-card";
+
 
 function Education() {
   return (
@@ -22,6 +25,7 @@ function Education() {
         </div>
       </div>
 
+
       <div className="flex justify-center my-5 lg:py-8">
         <div className="flex  items-center">
           <span className="w-24 h-[2px] bg-[#1a1443]"></span>
@@ -32,6 +36,7 @@ function Education() {
         </div>
       </div>
 
+
       <div className="py-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
           <div className="flex justify-center items-start">
@@ -39,6 +44,7 @@ function Education() {
               <AnimationLottie animationPath={lottieFile} />
             </div>
           </div>
+
 
           <div>
             <div className="flex flex-col gap-6">
