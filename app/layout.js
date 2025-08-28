@@ -1,14 +1,14 @@
+// @flow strict
 import { Inter } from "next/font/google";
 import { Toaster } from "react-hot-toast";
-import "./globals.css";
 import Navbar from "./components/navbar";
+import "./globals.css"; // Corrected path
 
 const inter = Inter({ subsets: ["latin"] });
 
-// Add this metadata object
 export const metadata = {
   title: "Crystal Jain - Developer Portfolio",
-  description: "Personal portfolio of Crystal Jain, a professional software developer specializing in full-stack development, data structures, and cloud computing.",
+  description: "Personal portfolio of Crystal Jain, a professional software developer.",
 };
 
 export default function RootLayout({ children }) {
