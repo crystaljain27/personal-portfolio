@@ -10,7 +10,7 @@ import Projects from "@/app/components/homepage/projects";
 import Skills from "@/app/components/homepage/skills";
 import AdditionalWork from "@/app/components/homepage/additional-work";
 
-// Dynamically import the Education component inside the new client component
+// Dynamically import the Education component inside this CLIENT component
 const Education = dynamic(() => import('@/app/components/homepage/education'), {
   ssr: false,
 });
