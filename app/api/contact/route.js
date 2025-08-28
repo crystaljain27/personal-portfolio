@@ -42,38 +42,37 @@ export async function POST(request) {
     const token = process.env.TELEGRAM_BOT_TOKEN;
     const chat_id = process.env.TELEGRAM_CHAT_ID;
 
-    // Create and configure Nodemailer transporter INSIDE the POST function
-    const transporter = nodemailer.createTransport({
-      service: 'gmail',
-      host: 'smtp.gmail.com',
-      port: 587,
-      secure: false, 
-      auth: {
-        user: process.env.EMAIL_ADDRESS,
-        pass: process.env.GMAIL_PASSKEY, 
-      },
-    });
-
-    const mailOptions = {
-      from: "Portfolio", 
-      to: process.env.EMAIL_ADDRESS, 
-      subject: `New Message From ${name}`, 
-      text: `New message from ${name}\\n\\nEmail: ${email}\\n\\nMessage:\\n\\n${userMessage}`,
-      html: generateEmailTemplate(name, email, userMessage), 
-      replyTo: email, 
-    };
-
     // Validate environment variables
     if (!token || !chat_id || !process.env.EMAIL_ADDRESS || !process.env.GMAIL_PASSKEY) {
+      console.error('Server configuration error: Missing environment variables');
       return NextResponse.json({
         success: false,
         message: 'Server configuration error: Required environment variables are missing.',
       }, { status: 500 });
     }
 
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      host: 'smtp.gmail.com',
+      port: 587,
+      secure: false,
+      auth: {
+        user: process.env.EMAIL_ADDRESS,
+        pass: process.env.GMAIL_PASSKEY,
+      },
+    });
+
+    const mailOptions = {
+      from: "Portfolio",
+      to: process.env.EMAIL_ADDRESS,
+      subject: `New Message From ${name}`,
+      text: `New message from ${name}\\n\\nEmail: ${email}\\n\\nMessage:\\n\\n${userMessage}`,
+      html: generateEmailTemplate(name, email, userMessage),
+      replyTo: email,
+    };
+
     const message = `New message from ${name}\\n\\nEmail: ${email}\\n\\nMessage:\\n\\n${userMessage}\\n\\n`;
 
-    // Send messages
     const telegramSuccess = await sendTelegramMessage(token, chat_id, message);
     const emailSuccess = await transporter.sendMail(mailOptions);
 
@@ -89,10 +88,12 @@ export async function POST(request) {
       message: 'Failed to send message or email.',
     }, { status: 500 });
   } catch (error) {
-    console.error('API Error:', error.message);
+    // THIS IS THE MODIFIED PART FOR BETTER DEBUGGING
+    console.error('Full API Error:', error);
     return NextResponse.json({
       success: false,
-      message: 'Server error occurred.',
+      message: 'An internal server error occurred.',
+      error: error.message, // Send back the specific error message
     }, { status: 500 });
   }
 };
