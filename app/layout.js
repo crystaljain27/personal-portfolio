@@ -1,7 +1,8 @@
 import { Inter } from "next/font/google";
 import { Toaster } from "react-hot-toast";
-import Navbar from "@/app/components/navbar"; // Using absolute path
-import "@/app/globals.css"; // Using absolute path
+import Navbar from "./components/navbar";
+// This is the correct path based on your screenshot
+import "./css/globals.scss"; 
 
 const inter = Inter({ subsets: ["latin"] });
 
