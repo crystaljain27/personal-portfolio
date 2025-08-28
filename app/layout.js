@@ -1,8 +1,7 @@
-// @flow strict
 import { Inter } from "next/font/google";
 import { Toaster } from "react-hot-toast";
 import Navbar from "./components/navbar";
-import "./globals.css"; // Corrected path
+import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
