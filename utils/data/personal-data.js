@@ -8,7 +8,7 @@ export const personalData = {
   address: 'Dehradun, India',
   github: 'https://github.com/crystaljain27',
   linkedIn: 'https://www.linkedin.com/in/crystal-jain-b10025264/',
-  leetcode: "https://leetcode.com/u/jain_crystal_27/",
+  leetcode: "https://leetcode.com/u/sweeny_27/",
   
   // --- Unused fields are set to null so the components can ignore them ---
   twitter: null,
